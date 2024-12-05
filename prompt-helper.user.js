@@ -153,12 +153,22 @@
     const textarea = document.querySelector(
       "div.pt-8 div.dark\\:text-gray-200.text-sm.font-primary.py-0\\.5.px-0\\.5 > div:nth-child(3) > div:nth-child(2) > div > textarea"
     );
+
     if (!textarea) {
       console.log("没有找到文本框");
       setTimeout(init, 250);
       return;
     }
+
+    // 检查是否已经初始化
+    if (textarea.getAttribute("data-prompt-helper-initialized")) {
+      return;
+    }
+
     console.log("找到文本框:", textarea);
+
+    // 标记该textarea已经初始化
+    textarea.setAttribute("data-prompt-helper-initialized", "true");
 
     initPrompts();
     const container = createButtonContainer(textarea);
@@ -166,6 +176,21 @@
     textarea.parentElement.insertBefore(container, textarea);
     refreshButtons(container, textarea);
   }
+
+  // 创建MutationObserver来监听DOM变化
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === "childList" || mutation.type === "subtree") {
+        init();
+      }
+    });
+  });
+
+  // 监听整个文档的变化
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
 
   // 启动脚本
   init();
