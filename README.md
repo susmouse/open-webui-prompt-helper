@@ -6,6 +6,10 @@
 
 ![截图](https://github.com/susmouse/open-webui-prompt-helper/blob/main/assets/example.png?raw=true)
 
+## 兼容版本
+
+- 2024 年 12 月 5 日测试：兼容 **v0.4.7**
+
 ## 安装说明
 
 1. 前往 [greasyfork](https://greasyfork.org)安装
