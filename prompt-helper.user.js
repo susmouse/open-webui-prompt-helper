@@ -4,8 +4,7 @@
 // @version      0.1
 // @description  为OpenWebUI添加快捷提示词按钮
 // @author       Your name
-// @match        *://localhost:*/*
-// @match        *://127.0.0.1:*/*
+// @match        http://182.44.3.73:6736/*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // ==/UserScript==
@@ -122,21 +121,35 @@
 
   // 主函数
   function init() {
-    const targetDiv = document.querySelector('div[slot="content"]');
+    // 使用更精确的选择器来定位目标元素
+    const targetDiv = document.querySelector("div.w-full.cursor-pointer");
     if (!targetDiv) {
       setTimeout(init, 1000);
       return;
     }
+    console.log(targetDiv);
 
-    const textarea = targetDiv.querySelector("textarea");
+    const textareaContainer = document.querySelector('div[slot="content"]');
+    if (!textareaContainer) {
+      setTimeout(init, 1000);
+      return;
+    }
+    console.log(textareaContainer);
+
+    const textarea = textareaContainer.querySelector("textarea");
     if (!textarea) {
       setTimeout(init, 1000);
       return;
     }
+    console.log(textarea);
 
     initPrompts();
     const container = createButtonContainer(textarea);
-    targetDiv.insertBefore(container, textarea);
+    // 将按钮容器插入到标题和文本框之间
+    targetDiv.parentElement.insertBefore(
+      container,
+      targetDiv.nextElementSibling
+    );
     refreshButtons(container, textarea);
   }
 
