@@ -124,6 +124,7 @@
     // 使用更精确的选择器来定位目标元素
     const targetDiv = document.querySelector("div.w-full.cursor-pointer");
     if (!targetDiv) {
+      console.log("没有找到目标元素");
       setTimeout(init, 1000);
       return;
     }
@@ -131,6 +132,7 @@
 
     const textareaContainer = document.querySelector('div[slot="content"]');
     if (!textareaContainer) {
+      console.log("没有找到文本框容器");
       setTimeout(init, 1000);
       return;
     }
@@ -138,6 +140,7 @@
 
     const textarea = textareaContainer.querySelector("textarea");
     if (!textarea) {
+      console.log("没有找到文本框");
       setTimeout(init, 1000);
       return;
     }
