@@ -12,5 +12,5 @@
 
 ## 安装说明
 
-1. 前往 [greasyfork](https://greasyfork.org)安装
+1. 前往 [greasyfork](https://greasyfork.org/zh-CN/scripts/519865)安装
 2. 请手动修改脚本的`// @match {URL}`处为你的 OpenWebUI 的域名，例如`// @match https://127.0.0.1:8080/*`
