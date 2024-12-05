@@ -7,6 +7,7 @@
 // @match        http://182.44.3.73:6736/*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @license      CC-BY-NC-4.0
 // ==/UserScript==
 
 (function () {
