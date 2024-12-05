@@ -39,6 +39,7 @@
   const style = document.createElement("style");
   style.textContent = `
         .prompt-helper-btn {
+            color: #000;
             margin: 3px;
             padding: 3px 6px;
             border: 1px solid #ccc;
@@ -53,6 +54,7 @@
             background-color: #e9ecef;
         }
         .prompt-name {
+            color: #000;
             margin-right: 3px;
             cursor: pointer;
         }
@@ -153,7 +155,7 @@
     );
     if (!textarea) {
       console.log("没有找到文本框");
-      setTimeout(init, 1000);
+      setTimeout(init, 250);
       return;
     }
     console.log("找到文本框:", textarea);
