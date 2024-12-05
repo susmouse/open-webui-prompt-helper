@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  为OpenWebUI的高级系统提示词加入类似nextchat的面具功能
 // @author       tutrabbit
-// @match        http://182.44.3.73:6736/*
+// @match        https://127.0.0.1:8080/*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @license      CC-BY-NC-4.0
