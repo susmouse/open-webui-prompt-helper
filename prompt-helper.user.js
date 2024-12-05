@@ -24,11 +24,6 @@
       prompt:
         "请你帮我写一则外卖好评，要求语言自然、真诚，突出商家的特色和优点，字数在50-100字之间。",
     },
-    {
-      name: "编程助手",
-      prompt:
-        "我希望你作为一个专业的程序员，帮助我解决编程相关的问题。请提供清晰的代码示例和详细的解释。",
-    },
   ];
 
   // 初始化提示词
@@ -75,7 +70,7 @@
   function createButton(prompt, container, textarea) {
     const btn = document.createElement("button");
     btn.className = "prompt-helper-btn";
-    btn.textContent = prompt.name + " -";
+    btn.textContent = prompt.name + "-";
     btn.onclick = () => {
       textarea.value = prompt.prompt;
       textarea.style.height = "auto";
@@ -121,38 +116,21 @@
 
   // 主函数
   function init() {
-    // 使用更精确的选择器来定位目标元素
-    const targetDiv = document.querySelector("div.w-full.cursor-pointer");
-    if (!targetDiv) {
-      console.log("没有找到目标元素");
-      setTimeout(init, 1000);
-      return;
-    }
-    console.log(targetDiv);
-
-    const textareaContainer = document.querySelector('div[slot="content"]');
-    if (!textareaContainer) {
-      console.log("没有找到文本框容器");
-      setTimeout(init, 1000);
-      return;
-    }
-    console.log(textareaContainer);
-
-    const textarea = textareaContainer.querySelector("textarea");
+    // 使用精确的选择器来定位文本框
+    const textarea = document.querySelector(
+      "body > div.modal.fixed.right-0.left-0.bottom-0.bg-black\\/60.w-full.h-screen.max-h-\\[100dvh\\].flex.justify-center.z-\\[9999\\].overflow-hidden.overscroll-contain > div > div > div > div.dark\\:text-gray-200.text-sm.font-primary.py-0\\.5.px-0\\.5 > div:nth-child(3) > div:nth-child(2) > div > textarea"
+    );
     if (!textarea) {
       console.log("没有找到文本框");
       setTimeout(init, 1000);
       return;
     }
-    console.log(textarea);
+    console.log("找到文本框:", textarea);
 
     initPrompts();
     const container = createButtonContainer(textarea);
-    // 将按钮容器插入到标题和文本框之间
-    targetDiv.parentElement.insertBefore(
-      container,
-      targetDiv.nextElementSibling
-    );
+    // 将按钮容器插入到文本框之前
+    textarea.parentElement.insertBefore(container, textarea);
     refreshButtons(container, textarea);
   }
 
