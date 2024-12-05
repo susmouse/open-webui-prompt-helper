@@ -7,6 +7,8 @@
 // @match        https://127.0.0.1:8080/*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @downloadURL https://update.greasyfork.org/scripts/519865/✨ OpenWebUI提示词助手(兼容v047).user.js
+// @updateURL https://update.greasyfork.org/scripts/519865/✨ OpenWebUI提示词助手(兼容v047).user.js
 // @license      CC-BY-NC-4.0
 // ==/UserScript==
 
