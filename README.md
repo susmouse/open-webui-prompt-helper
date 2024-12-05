@@ -5,6 +5,7 @@
 <div style="text-align: center;font-size: large;"><b>⚠️请看安装说明⚠️</b></div>
 
 ✨ 一个为 OpenWebUI 添加类似于 nextchat 的面具、chatbox 的搭档功能的油猴脚本，可以快速填充对话高级设置中的系统提示词。
+[![GitHub Star](https://img.shields.io/github/stars/susmouse/open-webui-prompt-helper.svg?style=flat-square&label=Star&color=4285dd&logo=github)](https://github.com/susmouse/open-webui-prompt-helper) 如果好用的话，就请给我点个 ⭐ 吧！
 
 ![截图](https://github.com/susmouse/open-webui-prompt-helper/blob/main/assets/example.png?raw=true)
 

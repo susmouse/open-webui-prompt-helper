@@ -8,6 +8,7 @@
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @icon         https://s2.loli.net/2024/12/05/lrYpNuECMKzHwOb.png
+// @supportURL   https://github.com/susmouse/open-webui-prompt-helper
 // @downloadURL https://update.greasyfork.org/scripts/519865/✨ OpenWebUI提示词助手(兼容v047).user.js
 // @updateURL https://update.greasyfork.org/scripts/519865/✨ OpenWebUI提示词助手(兼容v047).user.js
 // @license      CC-BY-NC-4.0
