@@ -39,16 +39,27 @@
   const style = document.createElement("style");
   style.textContent = `
         .prompt-helper-btn {
-            margin: 0 4px;
-            padding: 2px 8px;
-            border: 1px solid #ddd;
+            margin: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
             border-radius: 4px;
+            background-color: #f8f9fa;
             cursor: pointer;
-            font-size: 12px;
-            background: #f5f5f5;
+            display: inline-flex;
+            align-items: center;
         }
         .prompt-helper-btn:hover {
-            background: #e5e5e5;
+            background-color: #e9ecef;
+        }
+        .prompt-name {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            cursor: pointer;
+            color: #dc3545;
+            padding: 0 5px;
+            border-left: 1px solid #ccc;
         }
         .prompt-helper-container {
             margin: 8px 0;
@@ -68,20 +79,30 @@
 
   // 创建单个按钮
   function createButton(prompt, container, textarea) {
-    const btn = document.createElement("button");
+    const btn = document.createElement("div");
     btn.className = "prompt-helper-btn";
-    btn.textContent = prompt.name + "-";
-    btn.onclick = () => {
+    
+    const nameSpan = document.createElement("span");
+    nameSpan.className = "prompt-name";
+    nameSpan.textContent = prompt.name;
+    nameSpan.onclick = () => {
       textarea.value = prompt.prompt;
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
-
-      // 删除该提示词
+    };
+    
+    const deleteSpan = document.createElement("span");
+    deleteSpan.className = "delete-btn";
+    deleteSpan.textContent = "-";
+    deleteSpan.onclick = () => {
       const prompts = GM_getValue("prompts");
       const newPrompts = prompts.filter((p) => p.name !== prompt.name);
       GM_setValue("prompts", newPrompts);
       refreshButtons(container, textarea);
     };
+    
+    btn.appendChild(nameSpan);
+    btn.appendChild(deleteSpan);
     return btn;
   }
 
