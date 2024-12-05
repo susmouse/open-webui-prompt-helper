@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         OpenWebUI提示词助手
+// @name         ✨ OpenWebUI提示词助手(兼容v0.4.7)
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  为OpenWebUI添加快捷提示词按钮
-// @author       Your name
+// @version      1.0
+// @description  为OpenWebUI的高级系统提示词加入类似nextchat的面具功能
+// @author       tutrabbit
 // @match        http://182.44.3.73:6736/*
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -155,8 +155,8 @@
     );
 
     if (!textarea) {
-      console.log("没有找到文本框");
-      setTimeout(init, 250);
+      //   console.log("没有找到文本框");
+      setTimeout(init, 500);
       return;
     }
 
