@@ -39,33 +39,43 @@
   const style = document.createElement("style");
   style.textContent = `
         .prompt-helper-btn {
-            margin: 5px;
-            padding: 5px 10px;
+            margin: 3px;
+            padding: 3px 6px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 3px;
             background-color: #f8f9fa;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
+            font-size: 12px;
         }
         .prompt-helper-btn:hover {
             background-color: #e9ecef;
         }
         .prompt-name {
-            margin-right: 5px;
+            margin-right: 3px;
             cursor: pointer;
         }
         .delete-btn {
             cursor: pointer;
             color: #dc3545;
-            padding: 0 5px;
+            padding: 0 3px;
             border-left: 1px solid #ccc;
         }
         .prompt-helper-container {
-            margin: 8px 0;
+            margin: 6px 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 3px;
+        }
+        @media (max-width: 768px) {
+            .prompt-helper-btn {
+                padding: 2px 4px;
+                font-size: 10px;
+            }
+            .prompt-helper-container {
+                margin: 4px 0;
+            }
         }
     `;
   document.head.appendChild(style);
@@ -81,7 +91,7 @@
   function createButton(prompt, container, textarea) {
     const btn = document.createElement("div");
     btn.className = "prompt-helper-btn";
-    
+
     const nameSpan = document.createElement("span");
     nameSpan.className = "prompt-name";
     nameSpan.textContent = prompt.name;
@@ -90,7 +100,7 @@
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
     };
-    
+
     const deleteSpan = document.createElement("span");
     deleteSpan.className = "delete-btn";
     deleteSpan.textContent = "-";
@@ -100,7 +110,7 @@
       GM_setValue("prompts", newPrompts);
       refreshButtons(container, textarea);
     };
-    
+
     btn.appendChild(nameSpan);
     btn.appendChild(deleteSpan);
     return btn;
@@ -137,9 +147,9 @@
 
   // 主函数
   function init() {
-    // 使用精确的选择器来定位文本框
+    // 使用更通用的选择器来定位文本框，忽略动态ID部分
     const textarea = document.querySelector(
-      "body > div.modal.fixed.right-0.left-0.bottom-0.bg-black\\/60.w-full.h-screen.max-h-\\[100dvh\\].flex.justify-center.z-\\[9999\\].overflow-hidden.overscroll-contain > div > div > div > div.dark\\:text-gray-200.text-sm.font-primary.py-0\\.5.px-0\\.5 > div:nth-child(3) > div:nth-child(2) > div > textarea"
+      "div.pt-8 div.dark\\:text-gray-200.text-sm.font-primary.py-0\\.5.px-0\\.5 > div:nth-child(3) > div:nth-child(2) > div > textarea"
     );
     if (!textarea) {
       console.log("没有找到文本框");
