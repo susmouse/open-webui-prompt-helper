@@ -106,6 +106,10 @@
       textarea.value = prompt.prompt;
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
+      
+      // 手动触发输入事件
+      const event = new Event('input', { bubbles: true });
+      textarea.dispatchEvent(event);
     };
 
     const deleteSpan = document.createElement("span");
