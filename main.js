@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         ✨ OpenWebUI提示词助手(兼容v0.4.7)
+// @name         ✨ OpenWebUI提示词助手(兼容v0.5.2)
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  为OpenWebUI的高级系统提示词加入类似nextchat的面具功能
 // @author       tutrabbit
 // @match        https://127.0.0.1:8080/*
@@ -106,9 +106,9 @@
       textarea.value = prompt.prompt;
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
-      
-      // 手动触发输入事件
-      const event = new Event('input', { bubbles: true });
+
+      // 模拟用户输入，实现对提示词的保存
+      const event = new Event("input", { bubbles: true });
       textarea.dispatchEvent(event);
     };
 
